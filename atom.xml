@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Leonhardt</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2018-01-25T11:38:18.291Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>Leonhardt</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用Hexo搭建博客</title>
+    <link href="http://yoursite.com/2018/01/25/%E4%BD%BF%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
+    <id>http://yoursite.com/2018/01/25/使用Hexo搭建博客/</id>
+    <published>2018-01-25T10:58:02.873Z</published>
+    <updated>2018-01-25T11:38:18.291Z</updated>
+    
+    <content type="html"><![CDATA[<p>无意间看到<a href="http://www.shuang0420.com" target="_blank" rel="noopener">阿衡的博客</a>,也让我了解到NexT.竟然有着如此简约风格的博客.花了点时间做了个类似的,以下是对其的总结使用.<br><a id="more"></a></p><h1 id="搭建步骤"><a href="#搭建步骤" class="headerlink" title="搭建步骤"></a>搭建步骤</h1><h2 id="Hexo安装"><a href="#Hexo安装" class="headerlink" title="Hexo安装"></a>Hexo安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo #-g表示全局安装, npm默认为当前项目安装</span><br></pre></td></tr></table></figure><h2 id="Hexo部署"><a href="#Hexo部署" class="headerlink" title="Hexo部署"></a>Hexo部署</h2><p>新建文件夹并打开，在文件夹内操作。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo init #新建博客目录</span><br><span class="line">hexo g #根据当前目录下文件生成静态网页</span><br><span class="line">hexo s -p 3600 #启动服务器</span><br></pre></td></tr></table></figure></p><p>在浏览器输入localhost:3600就可以看到了<br><strong>注意</strong>:由于在win10下默认端口是4000无法打开,故改成3600端口</p><h2 id="下载Hexo主题"><a href="#下载Hexo主题" class="headerlink" title="下载Hexo主题"></a>下载Hexo主题</h2><p>我用的<a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">NexT.Mist</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br><span class="line">git clone --branch v5.1.2 https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure></p><h2 id="启用主题"><a href="#启用主题" class="headerlink" title="启用主题"></a>启用主题</h2><p>修改Hexo目录下的config.yml配置文件中的theme属性,将其设置为nextgit<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: nextgit #注意冒号后有一个空格</span><br></pre></td></tr></table></figure></p><p><strong>注意</strong>:Hexo有两个config.yml文件，一个在根目录，一个在theme下，此时修改的是在根目录下的。</p><h2 id="本地调试"><a href="#本地调试" class="headerlink" title="本地调试"></a>本地调试</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g #生成</span><br><span class="line">hexo s #启动本地服务，进行文章预览调试</span><br></pre></td></tr></table></figure><h1 id="Hexo发布"><a href="#Hexo发布" class="headerlink" title="Hexo发布"></a>Hexo发布</h1><h2 id="Hexo部署到github"><a href="#Hexo部署到github" class="headerlink" title="Hexo部署到github"></a>Hexo部署到github</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure><p>在 Hexo 文件夹下找到 config.yml 文件, 找到其中的 deploy 标签，改成下图所示形式，并保存。注意：冒号后面要加上一个空格，否则会报错<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https://github.com/Shuang0420/Shuang0420.github.io.git</span><br></pre></td></tr></table></figure></p><p>运行如下命令:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure></p><h2 id="发博文"><a href="#发博文" class="headerlink" title="发博文"></a>发博文</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;postname&quot; #然后在posts目录下的postname.md文件中编辑博客</span><br><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line"># (若要本地预览就先执行 hexo server)</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure><blockquote><p>引用资料:<br><a href="http://www.shuang0420.com/2016/05/12/Github-Pages-Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" target="_blank" rel="noopener">Github-Pages-Hexo搭建个人博客</a></p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;无意间看到&lt;a href=&quot;http://www.shuang0420.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;阿衡的博客&lt;/a&gt;,也让我了解到NexT.竟然有着如此简约风格的博客.花了点时间做了个类似的,以下是对其的总结使用.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Others" scheme="http://yoursite.com/categories/Others/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Lucene中IndexSearcher使用</title>
+    <link href="http://yoursite.com/2018/01/25/IndexSearcher/"/>
+    <id>http://yoursite.com/2018/01/25/IndexSearcher/</id>
+    <published>2018-01-25T08:09:26.745Z</published>
+    <updated>2018-01-25T10:35:28.883Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="demo" scheme="http://yoursite.com/categories/demo/"/>
+    
+      <category term="demo2" scheme="http://yoursite.com/categories/demo/demo2/"/>
+    
+    
+      <category term="Lucene" scheme="http://yoursite.com/tags/Lucene/"/>
+    
+      <category term="搜索引擎" scheme="http://yoursite.com/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello Worldzzzzzzzzz</title>
+    <link href="http://yoursite.com/2018/01/25/new%20-%20%E5%89%AF%E6%9C%AC/"/>
+    <id>http://yoursite.com/2018/01/25/new - 副本/</id>
+    <published>2018-01-25T06:52:47.748Z</published>
+    <updated>2018-01-25T09:34:59.058Z</updated>
+    
+    <content type="html"><![CDATA[<p>可以用于初始化数据</p><h2 id="用注解方式实现"><a href="#用注解方式实现" class="headerlink" title="用注解方式实现"></a>用注解方式实现</h2><a id="more"></a><h5 id="DataInitConfig-java"><a href="#DataInitConfig-java" class="headerlink" title="DataInitConfig.java"></a>DataInitConfig.java</h5><p>实现ApplicationListener,spring容器加载完后或默认调用onApplicationEvent()<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">package com.wamei.zhishou.common.init;</span><br><span class="line"></span><br><span class="line">import org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line">import org.springframework.context.ApplicationListener;</span><br><span class="line">import org.springframework.context.annotation.Configuration;</span><br><span class="line">import org.springframework.context.event.ContextRefreshedEvent;</span><br><span class="line"></span><br><span class="line">@Configuration</span><br><span class="line">public class DataInitConfig implements ApplicationListener&lt;ContextRefreshedEvent&gt; &#123;</span><br><span class="line"></span><br><span class="line">    @Autowired</span><br><span class="line">    private DataInit dataInit;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) &#123;</span><br><span class="line">        dataInit.init();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><h5 id="DataInit-java"><a href="#DataInit-java" class="headerlink" title="DataInit.java"></a>DataInit.java</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">package com.wamei.zhishou.common.init;</span><br><span class="line"></span><br><span class="line">import com.wamei.zhishou.dao.word.CompanyWordDao;</span><br><span class="line">import com.wamei.zhishou.domain.company.ComWordWeight;</span><br><span class="line"></span><br><span class="line">import org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line">import org.springframework.stereotype.Component;</span><br><span class="line"></span><br><span class="line">import java.util.List;</span><br><span class="line"></span><br><span class="line">@Component</span><br><span class="line">public class DataInit&#123;</span><br><span class="line"></span><br><span class="line">    @Autowired</span><br><span class="line">    private CompanyWordDao companyWordDao;</span><br><span class="line"></span><br><span class="line">    public static List&lt;ComWordWeight&gt; weightlist;</span><br><span class="line"></span><br><span class="line">    public void init()&#123;</span><br><span class="line">        weightlist = companyWordDao.listTableWeight();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;可以用于初始化数据&lt;/p&gt;
+&lt;h2 id=&quot;用注解方式实现&quot;&gt;&lt;a href=&quot;#用注解方式实现&quot; class=&quot;headerlink&quot; title=&quot;用注解方式实现&quot;&gt;&lt;/a&gt;用注解方式实现&lt;/h2&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://yoursite.com/2018/01/25/new/"/>
+    <id>http://yoursite.com/2018/01/25/new/</id>
+    <published>2018-01-25T06:50:56.268Z</published>
+    <updated>2018-01-25T06:52:24.579Z</updated>
+    
+    <content type="html"><![CDATA[<p>可以用于初始化数据</p><h2 id="用注解方式实现"><a href="#用注解方式实现" class="headerlink" title="用注解方式实现"></a>用注解方式实现</h2><h5 id="DataInitConfig-java"><a href="#DataInitConfig-java" class="headerlink" title="DataInitConfig.java"></a>DataInitConfig.java</h5><p>实现ApplicationListener,spring容器加载完后或默认调用onApplicationEvent()<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">package com.wamei.zhishou.common.init;</span><br><span class="line"></span><br><span class="line">import org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line">import org.springframework.context.ApplicationListener;</span><br><span class="line">import org.springframework.context.annotation.Configuration;</span><br><span class="line">import org.springframework.context.event.ContextRefreshedEvent;</span><br><span class="line"></span><br><span class="line">@Configuration</span><br><span class="line">public class DataInitConfig implements ApplicationListener&lt;ContextRefreshedEvent&gt; &#123;</span><br><span class="line"></span><br><span class="line">    @Autowired</span><br><span class="line">    private DataInit dataInit;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) &#123;</span><br><span class="line">        dataInit.init();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><h5 id="DataInit-java"><a href="#DataInit-java" class="headerlink" title="DataInit.java"></a>DataInit.java</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">package com.wamei.zhishou.common.init;</span><br><span class="line"></span><br><span class="line">import com.wamei.zhishou.dao.word.CompanyWordDao;</span><br><span class="line">import com.wamei.zhishou.domain.company.ComWordWeight;</span><br><span class="line"></span><br><span class="line">import org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line">import org.springframework.stereotype.Component;</span><br><span class="line"></span><br><span class="line">import java.util.List;</span><br><span class="line"></span><br><span class="line">@Component</span><br><span class="line">public class DataInit&#123;</span><br><span class="line"></span><br><span class="line">    @Autowired</span><br><span class="line">    private CompanyWordDao companyWordDao;</span><br><span class="line"></span><br><span class="line">    public static List&lt;ComWordWeight&gt; weightlist;</span><br><span class="line"></span><br><span class="line">    public void init()&#123;</span><br><span class="line">        weightlist = companyWordDao.listTableWeight();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;可以用于初始化数据&lt;/p&gt;
+&lt;h2 id=&quot;用注解方式实现&quot;&gt;&lt;a href=&quot;#用注解方式实现&quot; class=&quot;headerlink&quot; title=&quot;用注解方式实现&quot;&gt;&lt;/a&gt;用注解方式实现&lt;/h2&gt;&lt;h5 id=&quot;DataInitConfig-java&quot;&gt;&lt;a href
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://yoursite.com/2018/01/24/zerofire/"/>
+    <id>http://yoursite.com/2018/01/24/zerofire/</id>
+    <published>2018-01-24T11:05:49.105Z</published>
+    <updated>2018-01-24T11:35:12.846Z</updated>
+    
+    <content type="html"><![CDATA[<p>可以用于初始化数据</p><h2 id="用注解方式实现"><a href="#用注解方式实现" class="headerlink" title="用注解方式实现"></a>用注解方式实现</h2><h5 id="DataInitConfig-java"><a href="#DataInitConfig-java" class="headerlink" title="DataInitConfig.java"></a>DataInitConfig.java</h5><p>实现ApplicationListener,spring容器加载完后或默认调用onApplicationEvent()<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">package com.wamei.zhishou.common.init;</span><br><span class="line"></span><br><span class="line">import org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line">import org.springframework.context.ApplicationListener;</span><br><span class="line">import org.springframework.context.annotation.Configuration;</span><br><span class="line">import org.springframework.context.event.ContextRefreshedEvent;</span><br><span class="line"></span><br><span class="line">@Configuration</span><br><span class="line">public class DataInitConfig implements ApplicationListener&lt;ContextRefreshedEvent&gt; &#123;</span><br><span class="line"></span><br><span class="line">    @Autowired</span><br><span class="line">    private DataInit dataInit;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) &#123;</span><br><span class="line">        dataInit.init();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><h5 id="DataInit-java"><a href="#DataInit-java" class="headerlink" title="DataInit.java"></a>DataInit.java</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">package com.wamei.zhishou.common.init;</span><br><span class="line"></span><br><span class="line">import com.wamei.zhishou.dao.word.CompanyWordDao;</span><br><span class="line">import com.wamei.zhishou.domain.company.ComWordWeight;</span><br><span class="line"></span><br><span class="line">import org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line">import org.springframework.stereotype.Component;</span><br><span class="line"></span><br><span class="line">import java.util.List;</span><br><span class="line"></span><br><span class="line">@Component</span><br><span class="line">public class DataInit&#123;</span><br><span class="line"></span><br><span class="line">    @Autowired</span><br><span class="line">    private CompanyWordDao companyWordDao;</span><br><span class="line"></span><br><span class="line">    public static List&lt;ComWordWeight&gt; weightlist;</span><br><span class="line"></span><br><span class="line">    public void init()&#123;</span><br><span class="line">        weightlist = companyWordDao.listTableWeight();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;可以用于初始化数据&lt;/p&gt;
+&lt;h2 id=&quot;用注解方式实现&quot;&gt;&lt;a href=&quot;#用注解方式实现&quot; class=&quot;headerlink&quot; title=&quot;用注解方式实现&quot;&gt;&lt;/a&gt;用注解方式实现&lt;/h2&gt;&lt;h5 id=&quot;DataInitConfig-java&quot;&gt;&lt;a href
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://yoursite.com/2018/01/24/hello-world/"/>
+    <id>http://yoursite.com/2018/01/24/hello-world/</id>
+    <published>2018-01-24T07:53:49.699Z</published>
+    <updated>2018-01-24T07:53:49.700Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
