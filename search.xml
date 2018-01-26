@@ -9,34 +9,6 @@
       </categories>
   </entry>
   <entry>
-    <title><![CDATA[Lucene中IndexSearcher使用]]></title>
-    <url>%2F2018%2F01%2F25%2FIndexSearcher%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>demo</category>
-        <category>demo2</category>
-      </categories>
-      <tags>
-        <tag>Lucene</tag>
-        <tag>搜索引擎</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Hello Worldzzzzzzzzz]]></title>
-    <url>%2F2018%2F01%2F25%2Fnew%20-%20%E5%89%AF%E6%9C%AC%2F</url>
-    <content type="text"><![CDATA[可以用于初始化数据 用注解方式实现 DataInitConfig.java实现ApplicationListener,spring容器加载完后或默认调用onApplicationEvent()12345678910111213141516171819package com.wamei.zhishou.common.init;import org.springframework.beans.factory.annotation.Autowired;import org.springframework.context.ApplicationListener;import org.springframework.context.annotation.Configuration;import org.springframework.context.event.ContextRefreshedEvent;@Configurationpublic class DataInitConfig implements ApplicationListener&lt;ContextRefreshedEvent&gt; &#123; @Autowired private DataInit dataInit; @Override public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) &#123; dataInit.init(); &#125;&#125; DataInit.java1234567891011121314151617181920212223package com.wamei.zhishou.common.init;import com.wamei.zhishou.dao.word.CompanyWordDao;import com.wamei.zhishou.domain.company.ComWordWeight;import org.springframework.beans.factory.annotation.Autowired;import org.springframework.stereotype.Component;import java.util.List;@Componentpublic class DataInit&#123; @Autowired private CompanyWordDao companyWordDao; public static List&lt;ComWordWeight&gt; weightlist; public void init()&#123; weightlist = companyWordDao.listTableWeight(); &#125;&#125;]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[Hello World]]></title>
-    <url>%2F2018%2F01%2F25%2Fnew%2F</url>
-    <content type="text"><![CDATA[可以用于初始化数据 用注解方式实现DataInitConfig.java实现ApplicationListener,spring容器加载完后或默认调用onApplicationEvent()12345678910111213141516171819package com.wamei.zhishou.common.init;import org.springframework.beans.factory.annotation.Autowired;import org.springframework.context.ApplicationListener;import org.springframework.context.annotation.Configuration;import org.springframework.context.event.ContextRefreshedEvent;@Configurationpublic class DataInitConfig implements ApplicationListener&lt;ContextRefreshedEvent&gt; &#123; @Autowired private DataInit dataInit; @Override public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) &#123; dataInit.init(); &#125;&#125; DataInit.java1234567891011121314151617181920212223package com.wamei.zhishou.common.init;import com.wamei.zhishou.dao.word.CompanyWordDao;import com.wamei.zhishou.domain.company.ComWordWeight;import org.springframework.beans.factory.annotation.Autowired;import org.springframework.stereotype.Component;import java.util.List;@Componentpublic class DataInit&#123; @Autowired private CompanyWordDao companyWordDao; public static List&lt;ComWordWeight&gt; weightlist; public void init()&#123; weightlist = companyWordDao.listTableWeight(); &#125;&#125;]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>%2F2018%2F01%2F24%2Fzerofire%2F</url>
-    <content type="text"><![CDATA[可以用于初始化数据 用注解方式实现DataInitConfig.java实现ApplicationListener,spring容器加载完后或默认调用onApplicationEvent()12345678910111213141516171819package com.wamei.zhishou.common.init;import org.springframework.beans.factory.annotation.Autowired;import org.springframework.context.ApplicationListener;import org.springframework.context.annotation.Configuration;import org.springframework.context.event.ContextRefreshedEvent;@Configurationpublic class DataInitConfig implements ApplicationListener&lt;ContextRefreshedEvent&gt; &#123; @Autowired private DataInit dataInit; @Override public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) &#123; dataInit.init(); &#125;&#125; DataInit.java1234567891011121314151617181920212223package com.wamei.zhishou.common.init;import com.wamei.zhishou.dao.word.CompanyWordDao;import com.wamei.zhishou.domain.company.ComWordWeight;import org.springframework.beans.factory.annotation.Autowired;import org.springframework.stereotype.Component;import java.util.List;@Componentpublic class DataInit&#123; @Autowired private CompanyWordDao companyWordDao; public static List&lt;ComWordWeight&gt; weightlist; public void init()&#123; weightlist = companyWordDao.listTableWeight(); &#125;&#125;]]></content>
-  </entry>
-  <entry>
     <title><![CDATA[Hello World]]></title>
     <url>%2F2018%2F01%2F24%2Fhello-world%2F</url>
     <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
